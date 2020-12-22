@@ -2,6 +2,7 @@ import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_login_signup/loginSignUp/log_in.dart';
+import 'package:flutter_login_signup/route/route.dart';
 
 import 'package:google_fonts/google_fonts.dart';
 import 'package:image_picker/image_picker.dart';
@@ -227,7 +228,7 @@ class _SignUpState extends State<SignUp> {
                     ),
                     GestureDetector(
                       onTap: () {
-                        //Navigator.of(context).pushNamedAndRemoveUntil(LogIn, (Route<dynamic> route) => false);
+                        Navigator.of(context).pushNamedAndRemoveUntil(LOG_IN, (Route<dynamic> route) => false);
                       },
                       child: Text(
                         "log in",

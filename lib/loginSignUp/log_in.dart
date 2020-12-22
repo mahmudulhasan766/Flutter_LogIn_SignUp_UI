@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_login_signup/loginSignUp/sign_up.dart';
+import 'package:flutter_login_signup/route/route.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 import 'Widget/my_text_field.dart';
@@ -175,7 +176,8 @@ class _LogInState extends State<LogIn> {
                     ),
                     GestureDetector(
                       onTap: () {
-                        //Navigator.of(context).pushNamedAndRemoveUntil(SignUp(), (Route<dynamic> route) => false);
+                        Navigator.of(context).pushNamedAndRemoveUntil(
+                            SIGN_UP, (Route<dynamic> route) => false);
                       },
                       child: Text(
                         "Register now",

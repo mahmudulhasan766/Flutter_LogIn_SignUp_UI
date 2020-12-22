@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_login_signup/loginSignUp/sign_up.dart';
+import 'package:flutter_login_signup/route/route.dart';
 
 import 'loginSignUp/log_in.dart';
 
@@ -17,7 +19,11 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.blue,
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
-      home: LogIn(),
+      routes: <String, WidgetBuilder>{
+        LOG_IN: (BuildContext context) => LogIn(),
+        SIGN_UP: (BuildContext context) => SignUp(),
+      },
+      initialRoute: LOG_IN,
     );
   }
 }
