@@ -1,4 +1,4 @@
-import 'dart:io';
+
 
 import 'package:flutter/material.dart';
 import 'package:flutter_login_signup/loginSignUp/log_in.dart';
@@ -22,10 +22,11 @@ class _SignUpState extends State<SignUp> {
 
   String _value;
 
-  File imagefile;
-  void _chooseimage() async {
-    imagefile = await ImagePicker.pickImage(source: ImageSource.camera);
-    imagefile = await ImagePicker.pickImage(source: ImageSource.gallery);
+  XFile imagefile;
+  ImagePicker imagePicker =ImagePicker();
+  Future _chooseimage() async {
+    imagefile = await imagePicker.pickImage(source: ImageSource.camera);
+    imagefile = await imagePicker.pickImage(source: ImageSource.gallery);
     setState(() {});
   }
 
@@ -33,38 +34,45 @@ class _SignUpState extends State<SignUp> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.white,
+      appBar: AppBar(
+        backgroundColor: Colors.white,
+        elevation: 0,
+        leading: Icon(Icons.arrow_back,color: Colors.black,),
+        actions: [Padding(
+          padding: const EdgeInsets.only(right: 8.0),
+          child: Icon(Icons.menu,color: Colors.black,),
+        )],
+        title:   Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+
+            Text("Food",
+                style: GoogleFonts.exo(
+                    textStyle: TextStyle(
+                        color: Colors.black,
+                        fontSize: 23,
+                        fontWeight: FontWeight.w500))),
+            Text(
+              "Offer",
+              style: GoogleFonts.exo(
+                  textStyle: TextStyle(
+                      color: Colors.red,
+                      fontSize: 23,
+                      fontWeight: FontWeight.w500)),
+            ),
+          ],
+        ),
+      ),
+
       body: Container(
-        margin: EdgeInsets.symmetric(horizontal: 40),
+        margin: EdgeInsets.symmetric(horizontal: 20),
         child: ListView(
           children: [
             //SizedBox(height: MediaQuery.of(context).size.width/30),
             Column(
-              mainAxisAlignment: MainAxisAlignment.start,
+              mainAxisAlignment: MainAxisAlignment.center,
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
-                Row(
-                  children: [
-                    Icon(Icons.arrow_back),
-                    SizedBox(
-                      width: MediaQuery.of(context).size.width / 4,
-                    ),
-                    Text("Food",
-                        style: GoogleFonts.exo(
-                            textStyle: TextStyle(
-                                color: Colors.black,
-                                fontSize: 28,
-                                fontWeight: FontWeight.w500))),
-                    Text(
-                      "Offer",
-                      style: GoogleFonts.exo(
-                          textStyle: TextStyle(
-                              color: Colors.red,
-                              fontSize: 28,
-                              fontWeight: FontWeight.w500)),
-                    ),
-                  ],
-                ),
-
                 SizedBox(
                   height: MediaQuery.of(context).size.width / 24,
                 ),
