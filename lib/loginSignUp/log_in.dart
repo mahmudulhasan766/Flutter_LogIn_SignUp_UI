@@ -131,7 +131,7 @@ class _LogInState extends State<LogIn> {
                     Row(
                       children: [
                         Radio(
-                          value: 2,
+                          value:2,
                           groupValue: selectedRadio,
                           activeColor: Colors.black,
                           onChanged: (val) {
@@ -154,6 +154,7 @@ class _LogInState extends State<LogIn> {
                       borderRadius: BorderRadius.circular(30),
                     ),
                     onPressed: () {
+                      //validetion();
                       //validetion();
                     },
                     child: Text("Log in",
